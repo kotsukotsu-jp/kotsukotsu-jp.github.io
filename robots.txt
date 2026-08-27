@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /build-id.txt
+
+Sitemap: https://kotsukotsu-jp.github.io/sitemap.xml
