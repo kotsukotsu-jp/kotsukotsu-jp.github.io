@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>このサイトについて｜こつこつ配当</title>
+<meta name="description" content="こつこつ配当の目的、データの出所、判定の考え方、運営者情報。">
+<link rel="canonical" href="about.html">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+<header class="site-header">
+  <a class="brand" href="index.html"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="4.5" y="21" width="23" height="5.6" rx="2.8" fill="var(--accent)"/><rect x="7.5" y="13.2" width="17" height="5.6" rx="2.8" fill="var(--accent)" opacity=".62"/><rect x="10.5" y="5.4" width="11" height="5.6" rx="2.8" fill="var(--ok)"/></svg><span class="bname">こつこつ配当</span><span class="tagline">高配当・好財務スクリーナー</span></a>
+  <nav><input type="checkbox" id="navtgl" class="navtgl"><label class="navbtn" for="navtgl"><span aria-hidden="true">☰</span>メニュー</label><span class="navitems"><span class="navdrop"><a href="index.html">候補をさがす<svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a><span class="navmenu"><a href="index.html">今月の候補</a><a href="index.html#/?tab=near">あと1項目だけ惜しい</a><a href="ex-rights.html">今月権利が確定する銘柄</a><a href="stocks.html">全銘柄から探す</a></span></span><span class="navdrop"><a href="ranking/dividend-yield.html">ランキング<svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a><span class="navmenu"><a href="ranking/dividend-yield.html">配当利回り</a><a href="ranking/consecutive-dividend.html">連続増配・非減配</a><a href="ranking/equity-ratio.html">自己資本比率</a><a href="ranking/operating-margin.html">営業利益率</a><a href="ranking/cash-ratio.html">現金比率</a><a href="ranking/dividend-consistency.html">配当実績の一貫性</a></span></span><a href="articles.html">読みもの</a><a href="beginner.html">はじめての方へ</a><a href="index.html#/about/conditions">10項目とは</a></span></nav>
+</header>
+
+<main class="static-page">
+
+<h1>このサイトについて</h1>
+
+<p>「こつこつ配当」は、日本の全上場企業の財務データに <b>10項目のチェック</b> を
+毎日あてはめ、高配当かつ財務が健全な銘柄の<b>候補</b>を機械的に絞り込んで公開する
+サイトです。推奨銘柄の一覧ではなく、ご自身で調べるための出発点としてお使いください。</p>
+
+<h2>何をしているか</h2>
+<ol>
+  <li>日本取引所グループが公開する上場銘柄一覧から、対象となる約3,500社を取得します</li>
+  <li>金融庁のEDINETから各社の有価証券報告書を取得し、10期以上の財務数値を抽出します</li>
+  <li>株価と配当をYahoo! Financeから取得します</li>
+  <li>10項目のチェックを全銘柄にあてはめ、結果を毎朝更新します</li>
+</ol>
+
+<h2>「合格」ではなく「候補」と呼ぶ理由</h2>
+<p>10項目のうち<b>項目3「配当方針が明確で、配当実績に納得できる」は、
+決算数値からは機械的に判定できません</b>。各社のIR資料や配当方針の記述を読んで
+人が判断するものだからです。</p>
+<p>そのため本サイトは項目3を合否に数えず、結果を「合格」と断定せず
+<b>「候補」</b>と表記しています。判断の材料として、各社が有価証券報告書に書いた
+配当政策の原文と、過去の配当実績の一貫性を銘柄ごとに表示しています。</p>
+
+<h2>参考にした考え方</h2>
+<p>本サイトの10項目は、
+<a href="https://kobito-kabu.com/about/jouken/" target="_blank" rel="noopener">こびと株.com「こびと株の10条件」</a>
+で紹介されている銘柄選びの考え方を参考に、本サイトが独自に数値化・実装したものです。
+<b>本サイトはこびと株.comとは一切関係がなく、同サイトが推奨する銘柄一覧でもありません。</b>
+判定に用いるしきい値や計算式は本サイトが定めたものです。</p>
+
+<h2>できないこと</h2>
+<ul>
+  <li>個別銘柄の推奨や、売買のタイミングの助言は行いません</li>
+  <li>将来の株価や配当を予測するものではありません</li>
+  <li>銀行・証券・保険などの金融業は、財務の構造が一般の事業会社と大きく異なるため
+      判定の対象外としています（一覧には残し、実測値は表示しています）</li>
+</ul>
+
+<h2>案内役について</h2>
+<p>用語の説明などに「こつこ」という案内役が登場します。
+<b>実在の人物ではなく、説明のためのキャラクター</b>です。
+本サイトの分析や判定を行っているわけではありません。
+判定はすべて、公開データに対する機械的な計算によるものです。</p>
+
+<h2>運営者</h2>
+<p>個人が非営利で運営しています。ご意見・誤りのご指摘は
+<a href="contact.html">お問い合わせ</a>からお願いします。</p>
+
+</main>
+
+<footer class="site-footer">
+  <p><a href="disclaimer.html">免責事項</a> ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="contact.html">お問い合わせ</a></p>
+  <p>財務データ：EDINET（金融庁）／銘柄一覧：日本取引所グループ／株価・配当：Yahoo! Finance</p>
+  <p>本サイトは情報提供のみを目的としており、投資勧誘・投資助言ではありません。投資判断はご自身の責任でお願いします。</p>
+</footer>
+
+</body>
+</html>

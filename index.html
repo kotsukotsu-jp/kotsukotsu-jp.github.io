@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>こつこつ配当｜高配当・好財務の銘柄スクリーナー</title>
+<meta name="description" content="全上場銘柄の財務データに10項目のチェックを毎日あてはめ、高配当かつ財務が健全な銘柄の候補を絞り込みます。投資助言ではありません。">
+<link rel="stylesheet" href="style.css">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+<header class="site-header">
+  <!-- 看板。ロゴマークは src/pages.py の LOGO_SVG と同じ形。
+       CSS変数を使うためインラインSVGで置いている（ダークモードに追随する） -->
+  <a class="brand" href="#/"><svg class="logo" viewBox="0 0 32 32" aria-hidden="true"><rect x="4.5" y="21" width="23" height="5.6" rx="2.8" fill="var(--accent)"/><rect x="7.5" y="13.2" width="17" height="5.6" rx="2.8" fill="var(--accent)" opacity=".62"/><rect x="10.5" y="5.4" width="11" height="5.6" rx="2.8" fill="var(--ok)"/></svg><span class="bname">こつこつ配当</span><span class="tagline">高配当・好財務スクリーナー</span></a>
+  <nav><!--NAV:START--><input type="checkbox" id="navtgl" class="navtgl"><label class="navbtn" for="navtgl"><span aria-hidden="true">☰</span>メニュー</label><span class="navitems"><span class="navdrop"><a href="index.html">候補をさがす<svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a><span class="navmenu"><a href="index.html">今月の候補</a><a href="index.html#/?tab=near">あと1項目だけ惜しい</a><a href="ex-rights.html">今月権利が確定する銘柄</a><a href="stocks.html">全銘柄から探す</a></span></span><span class="navdrop"><a href="ranking/dividend-yield.html">ランキング<svg class="caret" viewBox="0 0 10 6" aria-hidden="true"><path d="M1 1l4 4 4-4" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg></a><span class="navmenu"><a href="ranking/dividend-yield.html">配当利回り</a><a href="ranking/consecutive-dividend.html">連続増配・非減配</a><a href="ranking/equity-ratio.html">自己資本比率</a><a href="ranking/operating-margin.html">営業利益率</a><a href="ranking/cash-ratio.html">現金比率</a><a href="ranking/dividend-consistency.html">配当実績の一貫性</a></span></span><a href="articles.html">読みもの</a><a href="beginner.html">はじめての方へ</a><a href="index.html#/about/conditions">10項目とは</a></span><!--NAV:END--></nav>
+</header>
+
+<!-- 常時表示。閉じるボタンは意図的に置いていない（UI設計 R4-2） -->
+<div class="notice" role="note">
+  <strong>ここに出ているのは「候補」です。買っていい株、という意味ではありません。</strong>
+  10項目のうち<b>「配当の方針に納得できるか」だけは、数字では測れない</b>ため、判定していません。
+  買う前に必ずご自身で会社の資料をご確認ください。本サイトは投資助言ではありません。
+  <a href="beginner.html">はじめての方へ →</a>
+</div>
+
+<div id="freshness" class="freshness"></div>
+
+<!-- ヒーローと再訪の手がかりは #view の外に置く。SPAは #view の中だけを
+     描き替えるため、ここに置けばJSの有無に関わらず常に見える。
+     いずれも日次バッチがマーカー間に書き込む。 -->
+<div class="topband"><!--HERO:START-->
+<section class="hero">
+  <div>
+    <h1>配当がしっかりしていて、<br>財務も健全な会社をさがす。</h1>
+    <p>日本の上場企業3,535社ぜんぶの決算と株価を、毎朝見直しています。
+    ここに出ているのは「買っていい株」ではなく、<b>調べてみる価値がありそうな候補</b>です。
+    最後はご自身の目で確かめてください。</p>
+    <p class="herolinks"><a href="beginner.html">はじめての方はこちら →</a></p>
+  </div>
+  <div class="hero-nums">
+    <div class="hn-date">2026-09-04 時点・既定の基準</div>
+    <div class="hn-grid">
+      <div><b class="ok">12</b><span>◎ 候補</span></div>
+      <div><b class="near">90</b><span>△ 惜しい</span></div>
+      <div><b class="sm">164</b><span>判定対象外</span></div>
+      <div><b class="sm">15</b><span>データ不足</span></div>
+    </div>
+  </div>
+</section>
+<!--HERO:END--></div>
+
+<!-- 一覧はJSで描くため、クローラーからは本文が見えない。
+     日次バッチが下のマーカー間に当日の候補を静的HTMLとして書き込む。 -->
+<main id="view"><!--STATIC:START-->
+<div class="static-top">
+  <h2>本日の候補（12銘柄）</h2>
+  <div class="ccards"><div class="ccard"><div class="ccode">7039</div><div class="cname"><a href="stock/7039.html">ブリッジインターナショナルグループ</a></div><div class="cyield">6.24<span>%</span></div><div class="clabel">配当利回り</div><div class="cmeta">PBR <b>1.04</b>　自己資本 <b>83.5%</b></div></div><div class="ccard"><div class="ccode">1384</div><div class="cname"><a href="stock/1384.html">ホクリヨウ</a></div><div class="cyield">5.89<span>%</span></div><div class="clabel">配当利回り</div><div class="cmeta">PBR <b>1.07</b>　自己資本 <b>74.9%</b></div></div><div class="ccard"><div class="ccode">9168</div><div class="cname"><a href="stock/9168.html">ライズ・コンサルティング・グループ</a></div><div class="cyield">4.88<span>%</span></div><div class="clabel">配当利回り</div><div class="cmeta">PBR <b>1.44</b>　自己資本 <b>75.8%</b></div></div></div>
+  <div class="tablewrap"><table class="t"><thead><tr><th>コード</th><th>銘柄名</th><th>配当利回り</th><th>PBR</th><th>営業利益率</th><th>自己資本比率</th></tr></thead><tbody><tr><td><a href="stock/6419.html">6419</a></td><td><a href="stock/6419.html">マースグループホールディングス</a></td><td>4.69%</td><td>0.69倍</td><td>27.2%</td><td>91.0%</td></tr><tr><td><a href="stock/9739.html">9739</a></td><td><a href="stock/9739.html">ＮＳＷ</a></td><td>4.59%</td><td>1.07倍</td><td>10.1%</td><td>76.9%</td></tr><tr><td><a href="stock/7722.html">7722</a></td><td><a href="stock/7722.html">国際計測器</a></td><td>4.52%</td><td>0.84倍</td><td>14.0%</td><td>60.0%</td></tr><tr><td><a href="stock/4641.html">4641</a></td><td><a href="stock/4641.html">アルプス技研</a></td><td>4.46%</td><td>0.83倍</td><td>10.3%</td><td>69.5%</td></tr><tr><td><a href="stock/6196.html">6196</a></td><td><a href="stock/6196.html">ストライクグループ</a></td><td>4.28%</td><td>1.25倍</td><td>31.2%</td><td>86.7%</td></tr><tr><td><a href="stock/7849.html">7849</a></td><td><a href="stock/7849.html">スターツ出版</a></td><td>4.22%</td><td>1.10倍</td><td>21.6%</td><td>83.5%</td></tr><tr><td><a href="stock/4752.html">4752</a></td><td><a href="stock/4752.html">昭和システムエンジニアリング</a></td><td>4.21%</td><td>1.14倍</td><td>11.7%</td><td>63.0%</td></tr><tr><td><a href="stock/6819.html">6819</a></td><td><a href="stock/6819.html">伊豆シャボテンリゾート</a></td><td>4.18%</td><td>1.40倍</td><td>20.9%</td><td>81.2%</td></tr><tr><td><a href="stock/1976.html">1976</a></td><td><a href="stock/1976.html">明星工業</a></td><td>3.82%</td><td>1.13倍</td><td>12.7%</td><td>80.6%</td></tr></tbody></table></div>
+  <p class="count">10項目のうち<b>1つだけは、数字では測れません</b>。
+  「配当の方針に納得できるか」は、会社が書いた文章を読んで判断することだからです。
+  そこは合否に数えていません。各銘柄のページに会社の言葉をそのまま載せてあるので、
+  読んでみてください。</p>
+</div>
+<!--STATIC:END--></main>
+
+<div class="topband"><!--HOOKS:START-->
+<section class="hooksec">
+  <h2>今月チェックしたいこと</h2>
+  <div class="hooks">
+    <div class="hook">
+      <h3>9月に権利が確定する銘柄</h3>
+      <p>この月に株を持っていると配当がもらえる会社です。
+      9月決算の会社と、中間配当を出す会社が対象になります。</p>
+      <div class="pills"><span>期末 180社</span>
+        <span>中間 1,300社</span></div>
+      <p><a href="ex-rights.html">銘柄の一覧を見る →</a></p>
+    </div>
+    <div class="hook">
+      <h3>前回からの変化</h3>
+      <p>株価は毎日動くので、利回りも判定も変わります。
+      前回から入れ替わった会社です。</p>
+      <p class="count">前回（2026-09-05）から候補の出入りはありません。</p>
+    </div>
+    <div class="hook">
+      <h3>あと1項目だけ届かない銘柄</h3>
+      <p>9項目は満たしているのに、あと1つだけ届かなかった会社が
+      90社あります。「利回りがあと0.1%足りないだけ」ということもあります。</p>
+      <p><a href="index.html#/?tab=near">「惜しい」から絞り込む →</a></p>
+    </div>
+  </div>
+  <!-- 広告枠。判定結果の表・カードには隣接させない（UI設計 4.0） -->
+  <div class="adslot" data-slot="top-bottom"></div>
+</section>
+<!--HOOKS:END--></div>
+
+<footer class="site-footer">
+  <!-- クローラーが規約系ページへ辿れるようにする。AdSense審査でも参照される -->
+  <p><a href="about.html">このサイトについて</a> ｜ <a href="disclaimer.html">免責事項</a>
+     ｜ <a href="privacy.html">プライバシーポリシー</a> ｜ <a href="contact.html">お問い合わせ</a></p>
+  <p>財務データ：EDINET（金融庁）／銘柄一覧：日本取引所グループ／株価・配当：Yahoo! Finance</p>
+  <p>本サイトは情報提供のみを目的としており、投資勧誘・投資助言ではありません。投資判断はご自身の責任でお願いします。</p>
+</footer>
+
+<script src="chart.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
