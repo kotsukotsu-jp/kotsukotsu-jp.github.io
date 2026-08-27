@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="32" height="32">
+  <!-- こつこつ配当のロゴマーク。少しずつ積み上がるコインの山。
+       単体ファイルなのでCSS変数は使えず、色は直書きする（style.css の --accent / --ok と同値）。 -->
+  <rect width="32" height="32" rx="7" fill="#2f5fa8"/>
+  <rect x="4.5" y="21" width="23" height="5.6" rx="2.8" fill="#ffffff" opacity=".95"/>
+  <rect x="7.5" y="13.2" width="17" height="5.6" rx="2.8" fill="#ffffff" opacity=".72"/>
+  <rect x="10.5" y="5.4" width="11" height="5.6" rx="2.8" fill="#8fdda6"/>
+</svg>
